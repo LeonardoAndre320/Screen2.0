@@ -17,6 +17,7 @@ namespace Screen2._0
         int Y = 0;
         public TelaPrincipal()
         {
+
             InitializeComponent();
 
             Barra.MouseDown += new MouseEventHandler(MouseBaixo);
