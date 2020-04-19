@@ -34,9 +34,15 @@
             this.bntMinimizar = new System.Windows.Forms.PictureBox();
             this.bntFechar = new System.Windows.Forms.PictureBox();
             this.ImagensBotoes = new System.Windows.Forms.ImageList(this.components);
+            this.bntAtivado = new System.Windows.Forms.PictureBox();
+            this.lblCaminho = new System.Windows.Forms.Label();
+            this.Nome = new System.Windows.Forms.Label();
+            this.grupoConfig = new System.Windows.Forms.GroupBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bntMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntFechar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bntAtivado)).BeginInit();
+            this.grupoConfig.SuspendLayout();
             this.SuspendLayout();
             // 
             // Titulo
@@ -89,12 +95,57 @@
             this.ImagensBotoes.ImageSize = new System.Drawing.Size(16, 16);
             this.ImagensBotoes.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // bntAtivado
+            // 
+            this.bntAtivado.BackColor = System.Drawing.Color.Lime;
+            this.bntAtivado.Location = new System.Drawing.Point(13, 37);
+            this.bntAtivado.Name = "bntAtivado";
+            this.bntAtivado.Size = new System.Drawing.Size(100, 20);
+            this.bntAtivado.TabIndex = 2;
+            this.bntAtivado.TabStop = false;
+            // 
+            // lblCaminho
+            // 
+            this.lblCaminho.AutoSize = true;
+            this.lblCaminho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.lblCaminho.ForeColor = System.Drawing.Color.White;
+            this.lblCaminho.Location = new System.Drawing.Point(6, 16);
+            this.lblCaminho.Name = "lblCaminho";
+            this.lblCaminho.Size = new System.Drawing.Size(48, 13);
+            this.lblCaminho.TabIndex = 3;
+            this.lblCaminho.Text = "Caminho";
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSize = true;
+            this.Nome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Nome.ForeColor = System.Drawing.Color.White;
+            this.Nome.Location = new System.Drawing.Point(6, 40);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(35, 13);
+            this.Nome.TabIndex = 4;
+            this.Nome.Text = "Nome";
+            // 
+            // grupoConfig
+            // 
+            this.grupoConfig.Controls.Add(this.lblCaminho);
+            this.grupoConfig.Controls.Add(this.Nome);
+            this.grupoConfig.ForeColor = System.Drawing.Color.White;
+            this.grupoConfig.Location = new System.Drawing.Point(12, 63);
+            this.grupoConfig.Name = "grupoConfig";
+            this.grupoConfig.Size = new System.Drawing.Size(200, 186);
+            this.grupoConfig.TabIndex = 5;
+            this.grupoConfig.TabStop = false;
+            this.grupoConfig.Text = "Configuraçoes";
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(573, 261);
+            this.Controls.Add(this.grupoConfig);
+            this.Controls.Add(this.bntAtivado);
             this.Controls.Add(this.Barra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaPrincipal";
@@ -104,6 +155,9 @@
             this.Barra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bntMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntFechar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bntAtivado)).EndInit();
+            this.grupoConfig.ResumeLayout(false);
+            this.grupoConfig.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -115,6 +169,10 @@
         private System.Windows.Forms.PictureBox bntMinimizar;
         private System.Windows.Forms.PictureBox bntFechar;
         private System.Windows.Forms.ImageList ImagensBotoes;
+        private System.Windows.Forms.PictureBox bntAtivado;
+        private System.Windows.Forms.Label lblCaminho;
+        private System.Windows.Forms.Label Nome;
+        private System.Windows.Forms.GroupBox grupoConfig;
     }
 }
 
