@@ -19,10 +19,11 @@ namespace Screen2._0
         int Y = 0;
         public TelaPrincipal()
         {
-
             InitializeComponent();
 
             ListaFormatos.SelectedIndex = 3;//Seleciona Png
+            TelaTamanho.Location = new Point(Size.Width / 2 - TelaTamanho.Size.Width / 2, TelaTamanho.Location.Y);//Centraliza a tela de tamanho
+
             Barra.MouseDown += new MouseEventHandler(MouseBaixo);
             Barra.MouseMove += new MouseEventHandler(MovimentoMouse);
 
@@ -77,6 +78,7 @@ namespace Screen2._0
                 SalvarArquivo.FileName = txtNome.Text;
             }
 
+            SalvarArquivo.Filter = "Arquivos de imagens|*.bmp;*.icon;*.jpeg;*.png|Todos os arquivos|*.*";
             SalvarArquivo.Title = "Escolha aonde vai salvar sua imagem";
             SalvarArquivo.ShowDialog();
         }
@@ -85,15 +87,45 @@ namespace Screen2._0
         private void Temporizador_Tick(object sender, EventArgs e)
         {
             #region Mantem as labels de tamanho no centro
-            TelaTamanho.Location = new Point(Size.Width / 2 - TelaTamanho.Size.Width / 2,TelaTamanho.Location.Y);
 
             //                               distancia da tela          tamanho da tela / 2        tamanho label / 2           altura normal
             lblSuperior.Location = new Point(TelaTamanho.Location.X + TelaTamanho.Size.Width / 2 - lblSuperior.Size.Width / 2, lblSuperior.Location.Y);
             lblInferior.Location = new Point(TelaTamanho.Location.X + TelaTamanho.Size.Width / 2 - lblInferior.Size.Width / 2, lblInferior.Location.Y);
 
-            lblEsquerda.Location = new Point(lblEsquerda.Location.X, TelaTamanho.Location.Y + TelaTamanho.Size.Height / 2 - lblEsquerda.Size.Width / 2);
-
+            lblEsquerda.Location = new Point(TelaTamanho.Location.X - lblEsquerda.Size.Width,TelaTamanho.Location.Y + TelaTamanho.Size.Height / 2 - lblEsquerda.Size.Height / 2);
+            lblDireita.Location = new Point(TelaTamanho.Location.X + 96 , TelaTamanho.Location.Y + TelaTamanho.Size.Height / 2 - lblDireita.Size.Height / 2);
+            
             #endregion
+
+        }
+
+        private Bitmap CortarImagem(Bitmap Imagem, int Superior = 0, int Inferior = 0, int Esquerda = 0, int Direita = 0)
+        {
+
+
+            return Imagem;
+        }
+
+        int CorteSelecionado = 0;
+        
+        private void ClickSuperior(object sender, EventArgs e)
+        {
+            
+            if (CorteSelecionado != 0)
+            {
+                lblSuperior.ForeColor = Color.SteelBlue;
+                CorteSelecionado = 0;
+            }
+            else
+            {
+                lblSuperior.ForeColor = Color.White;
+                CorteSelecionado = 0;
+            }
+            
+        }
+
+        private void MudarValor2(object sender,EventArgs e)
+        {
         }
     }
 }

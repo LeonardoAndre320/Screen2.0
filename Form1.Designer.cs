@@ -36,32 +36,32 @@
             this.ImagensBotoes = new System.Windows.Forms.ImageList(this.components);
             this.bntAtivado = new System.Windows.Forms.PictureBox();
             this.grupoConfig = new System.Windows.Forms.GroupBox();
-            this.txtLocal = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.mais = new System.Windows.Forms.Label();
-            this.lblLocal = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.TelaTamanho = new System.Windows.Forms.PictureBox();
-            this.lblSuperior = new System.Windows.Forms.Label();
-            this.SalvarArquivo = new System.Windows.Forms.SaveFileDialog();
-            this.ListaFormatos = new System.Windows.Forms.ListBox();
-            this.lblFormato = new System.Windows.Forms.Label();
-            this.UltimaImagem = new System.Windows.Forms.PictureBox();
+            this.lblDireita = new System.Windows.Forms.Label();
+            this.lblEsquerda = new System.Windows.Forms.Label();
+            this.lblInferior = new System.Windows.Forms.Label();
             this.lblUltimaImagem = new System.Windows.Forms.Label();
+            this.UltimaImagem = new System.Windows.Forms.PictureBox();
+            this.lblFormato = new System.Windows.Forms.Label();
+            this.ListaFormatos = new System.Windows.Forms.ListBox();
+            this.lblSuperior = new System.Windows.Forms.Label();
+            this.TelaTamanho = new System.Windows.Forms.PictureBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lblLocal = new System.Windows.Forms.Label();
+            this.mais = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtLocal = new System.Windows.Forms.TextBox();
+            this.SalvarArquivo = new System.Windows.Forms.SaveFileDialog();
             this.lblSaida = new System.Windows.Forms.Label();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
-            this.lblInferior = new System.Windows.Forms.Label();
-            this.lblEsquerda = new System.Windows.Forms.Label();
-            this.lblDireita = new System.Windows.Forms.Label();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bntMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntFechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntAtivado)).BeginInit();
             this.grupoConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TelaTamanho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UltimaImagem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TelaTamanho)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo
@@ -149,92 +149,58 @@
             this.grupoConfig.TabStop = false;
             this.grupoConfig.Text = "Configuraçoes";
             // 
-            // txtLocal
+            // lblDireita
             // 
-            this.txtLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.txtLocal.ForeColor = System.Drawing.Color.White;
-            this.txtLocal.Location = new System.Drawing.Point(48, 20);
-            this.txtLocal.Name = "txtLocal";
-            this.txtLocal.Size = new System.Drawing.Size(468, 20);
-            this.txtLocal.TabIndex = 0;
+            this.lblDireita.AutoSize = true;
+            this.lblDireita.Location = new System.Drawing.Point(339, 101);
+            this.lblDireita.Name = "lblDireita";
+            this.lblDireita.Size = new System.Drawing.Size(24, 13);
+            this.lblDireita.TabIndex = 15;
+            this.lblDireita.Text = "0px";
             // 
-            // txtNome
+            // lblEsquerda
             // 
-            this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.txtNome.ForeColor = System.Drawing.Color.White;
-            this.txtNome.Location = new System.Drawing.Point(48, 46);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(416, 20);
-            this.txtNome.TabIndex = 1;
+            this.lblEsquerda.AutoSize = true;
+            this.lblEsquerda.Location = new System.Drawing.Point(203, 101);
+            this.lblEsquerda.Name = "lblEsquerda";
+            this.lblEsquerda.Size = new System.Drawing.Size(24, 13);
+            this.lblEsquerda.TabIndex = 14;
+            this.lblEsquerda.Text = "0px";
             // 
-            // mais
+            // lblInferior
             // 
-            this.mais.AutoSize = true;
-            this.mais.Location = new System.Drawing.Point(470, 49);
-            this.mais.Name = "mais";
-            this.mais.Size = new System.Drawing.Size(13, 13);
-            this.mais.TabIndex = 2;
-            this.mais.Text = "+";
+            this.lblInferior.AutoSize = true;
+            this.lblInferior.Location = new System.Drawing.Point(230, 156);
+            this.lblInferior.Name = "lblInferior";
+            this.lblInferior.Size = new System.Drawing.Size(24, 13);
+            this.lblInferior.TabIndex = 13;
+            this.lblInferior.Text = "0px";
             // 
-            // lblLocal
+            // lblUltimaImagem
             // 
-            this.lblLocal.AutoSize = true;
-            this.lblLocal.Location = new System.Drawing.Point(6, 23);
-            this.lblLocal.Name = "lblLocal";
-            this.lblLocal.Size = new System.Drawing.Size(36, 13);
-            this.lblLocal.TabIndex = 3;
-            this.lblLocal.Text = "Local:";
+            this.lblUltimaImagem.AutoSize = true;
+            this.lblUltimaImagem.Location = new System.Drawing.Point(446, 83);
+            this.lblUltimaImagem.Name = "lblUltimaImagem";
+            this.lblUltimaImagem.Size = new System.Drawing.Size(78, 13);
+            this.lblUltimaImagem.TabIndex = 12;
+            this.lblUltimaImagem.Text = "Ultima imagem:";
             // 
-            // lblNome
+            // UltimaImagem
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(6, 49);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
-            this.lblNome.TabIndex = 4;
-            this.lblNome.Text = "Nome:";
+            this.UltimaImagem.Location = new System.Drawing.Point(447, 101);
+            this.UltimaImagem.Name = "UltimaImagem";
+            this.UltimaImagem.Size = new System.Drawing.Size(96, 54);
+            this.UltimaImagem.TabIndex = 11;
+            this.UltimaImagem.TabStop = false;
             // 
-            // txtNumero
+            // lblFormato
             // 
-            this.txtNumero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.txtNumero.ForeColor = System.Drawing.Color.White;
-            this.txtNumero.Location = new System.Drawing.Point(489, 46);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(54, 20);
-            this.txtNumero.TabIndex = 2;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(522, 20);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(21, 20);
-            this.lblBuscar.TabIndex = 5;
-            this.lblBuscar.Text = "...";
-            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
-            this.lblBuscar.MouseEnter += new System.EventHandler(this.SelecionarBuscar);
-            this.lblBuscar.MouseLeave += new System.EventHandler(this.DesSelecionarBuscar);
-            // 
-            // TelaTamanho
-            // 
-            this.TelaTamanho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.TelaTamanho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TelaTamanho.Location = new System.Drawing.Point(233, 99);
-            this.TelaTamanho.Name = "TelaTamanho";
-            this.TelaTamanho.Size = new System.Drawing.Size(100, 50);
-            this.TelaTamanho.TabIndex = 6;
-            this.TelaTamanho.TabStop = false;
-            // 
-            // lblSuperior
-            // 
-            this.lblSuperior.AutoSize = true;
-            this.lblSuperior.Location = new System.Drawing.Point(230, 83);
-            this.lblSuperior.Name = "lblSuperior";
-            this.lblSuperior.Size = new System.Drawing.Size(24, 13);
-            this.lblSuperior.TabIndex = 7;
-            this.lblSuperior.Text = "0px";
+            this.lblFormato.AutoSize = true;
+            this.lblFormato.Location = new System.Drawing.Point(6, 83);
+            this.lblFormato.Name = "lblFormato";
+            this.lblFormato.Size = new System.Drawing.Size(48, 13);
+            this.lblFormato.TabIndex = 10;
+            this.lblFormato.Text = "Formato:";
             // 
             // ListaFormatos
             // 
@@ -251,31 +217,93 @@
             this.ListaFormatos.Size = new System.Drawing.Size(120, 56);
             this.ListaFormatos.TabIndex = 3;
             // 
-            // lblFormato
+            // lblSuperior
             // 
-            this.lblFormato.AutoSize = true;
-            this.lblFormato.Location = new System.Drawing.Point(6, 83);
-            this.lblFormato.Name = "lblFormato";
-            this.lblFormato.Size = new System.Drawing.Size(48, 13);
-            this.lblFormato.TabIndex = 10;
-            this.lblFormato.Text = "Formato:";
+            this.lblSuperior.AutoSize = true;
+            this.lblSuperior.Location = new System.Drawing.Point(230, 83);
+            this.lblSuperior.Name = "lblSuperior";
+            this.lblSuperior.Size = new System.Drawing.Size(24, 13);
+            this.lblSuperior.TabIndex = 7;
+            this.lblSuperior.Text = "0px";
+            this.lblSuperior.Click += new System.EventHandler(this.ClickSuperior);
             // 
-            // UltimaImagem
+            // TelaTamanho
             // 
-            this.UltimaImagem.Location = new System.Drawing.Point(447, 101);
-            this.UltimaImagem.Name = "UltimaImagem";
-            this.UltimaImagem.Size = new System.Drawing.Size(96, 54);
-            this.UltimaImagem.TabIndex = 11;
-            this.UltimaImagem.TabStop = false;
+            this.TelaTamanho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.TelaTamanho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TelaTamanho.Location = new System.Drawing.Point(233, 99);
+            this.TelaTamanho.Name = "TelaTamanho";
+            this.TelaTamanho.Size = new System.Drawing.Size(96, 54);
+            this.TelaTamanho.TabIndex = 6;
+            this.TelaTamanho.TabStop = false;
             // 
-            // lblUltimaImagem
+            // lblBuscar
             // 
-            this.lblUltimaImagem.AutoSize = true;
-            this.lblUltimaImagem.Location = new System.Drawing.Point(446, 83);
-            this.lblUltimaImagem.Name = "lblUltimaImagem";
-            this.lblUltimaImagem.Size = new System.Drawing.Size(78, 13);
-            this.lblUltimaImagem.TabIndex = 12;
-            this.lblUltimaImagem.Text = "Ultima imagem:";
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(522, 20);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(21, 20);
+            this.lblBuscar.TabIndex = 5;
+            this.lblBuscar.Text = "...";
+            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
+            this.lblBuscar.MouseEnter += new System.EventHandler(this.SelecionarBuscar);
+            this.lblBuscar.MouseLeave += new System.EventHandler(this.DesSelecionarBuscar);
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(6, 49);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.TabIndex = 4;
+            this.lblNome.Text = "Nome:";
+            // 
+            // lblLocal
+            // 
+            this.lblLocal.AutoSize = true;
+            this.lblLocal.Location = new System.Drawing.Point(6, 23);
+            this.lblLocal.Name = "lblLocal";
+            this.lblLocal.Size = new System.Drawing.Size(36, 13);
+            this.lblLocal.TabIndex = 3;
+            this.lblLocal.Text = "Local:";
+            // 
+            // mais
+            // 
+            this.mais.AutoSize = true;
+            this.mais.Location = new System.Drawing.Point(470, 49);
+            this.mais.Name = "mais";
+            this.mais.Size = new System.Drawing.Size(13, 13);
+            this.mais.TabIndex = 2;
+            this.mais.Text = "+";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.txtNumero.ForeColor = System.Drawing.Color.White;
+            this.txtNumero.Location = new System.Drawing.Point(489, 46);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(54, 20);
+            this.txtNumero.TabIndex = 2;
+            // 
+            // txtNome
+            // 
+            this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.txtNome.ForeColor = System.Drawing.Color.White;
+            this.txtNome.Location = new System.Drawing.Point(48, 46);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(416, 20);
+            this.txtNome.TabIndex = 1;
+            // 
+            // txtLocal
+            // 
+            this.txtLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.txtLocal.ForeColor = System.Drawing.Color.White;
+            this.txtLocal.Location = new System.Drawing.Point(48, 20);
+            this.txtLocal.Name = "txtLocal";
+            this.txtLocal.Size = new System.Drawing.Size(468, 20);
+            this.txtLocal.TabIndex = 0;
             // 
             // lblSaida
             // 
@@ -291,33 +319,6 @@
             // 
             this.Temporizador.Enabled = true;
             this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
-            // 
-            // lblInferior
-            // 
-            this.lblInferior.AutoSize = true;
-            this.lblInferior.Location = new System.Drawing.Point(230, 152);
-            this.lblInferior.Name = "lblInferior";
-            this.lblInferior.Size = new System.Drawing.Size(24, 13);
-            this.lblInferior.TabIndex = 13;
-            this.lblInferior.Text = "0px";
-            // 
-            // lblEsquerda
-            // 
-            this.lblEsquerda.AutoSize = true;
-            this.lblEsquerda.Location = new System.Drawing.Point(203, 101);
-            this.lblEsquerda.Name = "lblEsquerda";
-            this.lblEsquerda.Size = new System.Drawing.Size(42, 13);
-            this.lblEsquerda.TabIndex = 14;
-            this.lblEsquerda.Text = "1000px";
-            // 
-            // lblDireita
-            // 
-            this.lblDireita.AutoSize = true;
-            this.lblDireita.Location = new System.Drawing.Point(339, 101);
-            this.lblDireita.Name = "lblDireita";
-            this.lblDireita.Size = new System.Drawing.Size(24, 13);
-            this.lblDireita.TabIndex = 15;
-            this.lblDireita.Text = "0px";
             // 
             // TelaPrincipal
             // 
@@ -340,8 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bntAtivado)).EndInit();
             this.grupoConfig.ResumeLayout(false);
             this.grupoConfig.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TelaTamanho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UltimaImagem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TelaTamanho)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
