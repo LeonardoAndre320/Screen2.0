@@ -157,6 +157,7 @@
             this.lblDireita.Size = new System.Drawing.Size(24, 13);
             this.lblDireita.TabIndex = 15;
             this.lblDireita.Text = "0px";
+            this.lblDireita.Click += new System.EventHandler(this.ClickDireita);
             // 
             // lblEsquerda
             // 
@@ -166,6 +167,7 @@
             this.lblEsquerda.Size = new System.Drawing.Size(24, 13);
             this.lblEsquerda.TabIndex = 14;
             this.lblEsquerda.Text = "0px";
+            this.lblEsquerda.Click += new System.EventHandler(this.ClickEsquerda);
             // 
             // lblInferior
             // 
@@ -175,6 +177,7 @@
             this.lblInferior.Size = new System.Drawing.Size(24, 13);
             this.lblInferior.TabIndex = 13;
             this.lblInferior.Text = "0px";
+            this.lblInferior.Click += new System.EventHandler(this.ClickInferior);
             // 
             // lblUltimaImagem
             // 
@@ -216,6 +219,7 @@
             this.ListaFormatos.Name = "ListaFormatos";
             this.ListaFormatos.Size = new System.Drawing.Size(120, 56);
             this.ListaFormatos.TabIndex = 3;
+            this.ListaFormatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
             // 
             // lblSuperior
             // 
@@ -286,6 +290,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(54, 20);
             this.txtNumero.TabIndex = 2;
+            this.txtNumero.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
             // 
             // txtNome
             // 
@@ -295,6 +300,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(416, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
             // 
             // txtLocal
             // 
@@ -304,6 +310,7 @@
             this.txtLocal.Name = "txtLocal";
             this.txtLocal.Size = new System.Drawing.Size(468, 20);
             this.txtLocal.TabIndex = 0;
+            this.txtLocal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
             // 
             // lblSaida
             // 
