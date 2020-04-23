@@ -204,7 +204,6 @@ namespace Screen2._0
             }
 
             #endregion
-
         }
 
         private void TeclaPrecionada(object sender,KeyEventArgs e)
