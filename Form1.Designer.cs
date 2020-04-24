@@ -49,7 +49,7 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblLocal = new System.Windows.Forms.Label();
-            this.mais = new System.Windows.Forms.Label();
+            this.lblMais = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtLocal = new System.Windows.Forms.TextBox();
@@ -91,30 +91,39 @@
             // 
             // bntMinimizar
             // 
-            this.bntMinimizar.BackColor = System.Drawing.Color.Blue;
+            this.bntMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.bntMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("bntMinimizar.Image")));
             this.bntMinimizar.Location = new System.Drawing.Point(513, 0);
             this.bntMinimizar.Name = "bntMinimizar";
             this.bntMinimizar.Size = new System.Drawing.Size(30, 30);
             this.bntMinimizar.TabIndex = 2;
             this.bntMinimizar.TabStop = false;
             this.bntMinimizar.Click += new System.EventHandler(this.bntMinimizar_Click);
+            this.bntMinimizar.MouseEnter += new System.EventHandler(this.MinimizarEntrar);
+            this.bntMinimizar.MouseLeave += new System.EventHandler(this.MinimizarSair);
             // 
             // bntFechar
             // 
             this.bntFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntFechar.BackColor = System.Drawing.Color.Red;
+            this.bntFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.bntFechar.Image = ((System.Drawing.Image)(resources.GetObject("bntFechar.Image")));
             this.bntFechar.Location = new System.Drawing.Point(543, 0);
             this.bntFechar.Name = "bntFechar";
             this.bntFechar.Size = new System.Drawing.Size(30, 30);
             this.bntFechar.TabIndex = 1;
             this.bntFechar.TabStop = false;
             this.bntFechar.Click += new System.EventHandler(this.bntFechar_Click);
+            this.bntFechar.MouseEnter += new System.EventHandler(this.FecharEntrar);
+            this.bntFechar.MouseLeave += new System.EventHandler(this.FecharSair);
             // 
             // ImagensBotoes
             // 
-            this.ImagensBotoes.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImagensBotoes.ImageSize = new System.Drawing.Size(16, 16);
+            this.ImagensBotoes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImagensBotoes.ImageStream")));
             this.ImagensBotoes.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImagensBotoes.Images.SetKeyName(0, "Fechar1.png");
+            this.ImagensBotoes.Images.SetKeyName(1, "Fechar2.png");
+            this.ImagensBotoes.Images.SetKeyName(2, "Menos1.png");
+            this.ImagensBotoes.Images.SetKeyName(3, "Menos2.png");
             // 
             // bntAtivado
             // 
@@ -141,7 +150,7 @@
             this.grupoConfig.Controls.Add(this.lblBuscar);
             this.grupoConfig.Controls.Add(this.lblNome);
             this.grupoConfig.Controls.Add(this.lblLocal);
-            this.grupoConfig.Controls.Add(this.mais);
+            this.grupoConfig.Controls.Add(this.lblMais);
             this.grupoConfig.Controls.Add(this.txtNumero);
             this.grupoConfig.Controls.Add(this.txtNome);
             this.grupoConfig.Controls.Add(this.txtLocal);
@@ -276,14 +285,14 @@
             this.lblLocal.TabIndex = 3;
             this.lblLocal.Text = "Local:";
             // 
-            // mais
+            // lblMais
             // 
-            this.mais.AutoSize = true;
-            this.mais.Location = new System.Drawing.Point(470, 49);
-            this.mais.Name = "mais";
-            this.mais.Size = new System.Drawing.Size(13, 13);
-            this.mais.TabIndex = 2;
-            this.mais.Text = "+";
+            this.lblMais.AutoSize = true;
+            this.lblMais.Location = new System.Drawing.Point(470, 49);
+            this.lblMais.Name = "lblMais";
+            this.lblMais.Size = new System.Drawing.Size(13, 13);
+            this.lblMais.TabIndex = 2;
+            this.lblMais.Text = "+";
             // 
             // txtNumero
             // 
@@ -376,7 +385,7 @@
         private System.Windows.Forms.GroupBox grupoConfig;
         private System.Windows.Forms.TextBox txtLocal;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label mais;
+        private System.Windows.Forms.Label lblMais;
         private System.Windows.Forms.Label lblLocal;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNumero;

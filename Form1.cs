@@ -27,11 +27,19 @@ namespace Screen2._0
             ListaFormatos.SelectedIndex = 3;//Seleciona Png
             TelaTamanho.Location = new Point(Size.Width / 2 - TelaTamanho.Size.Width / 2, TelaTamanho.Location.Y);//Centraliza a tela de tamanho
 
+            #region Controle de movimento da janela
             Barra.MouseDown += new MouseEventHandler(MouseBaixo);
             Barra.MouseMove += new MouseEventHandler(MovimentoMouse);
 
             Titulo.MouseDown += new MouseEventHandler(MouseBaixo);
             Titulo.MouseMove += new MouseEventHandler(MovimentoMouse);
+
+            bntMinimizar.MouseDown += new MouseEventHandler(MouseBaixo);
+            bntMinimizar.MouseMove += new MouseEventHandler(MovimentoMouse);
+
+            bntFechar.MouseDown += new MouseEventHandler(MouseBaixo);
+            bntFechar.MouseMove += new MouseEventHandler(MovimentoMouse);
+            #endregion
         }
 
         #region Movimentacao da janela
@@ -58,11 +66,29 @@ namespace Screen2._0
         {
             WindowState = FormWindowState.Minimized;
         }
+        private void MinimizarEntrar(object sender,EventArgs e)
+        {
+            bntMinimizar.Image = ImagensBotoes.Images[3];
+        }
+        private void MinimizarSair(object sender, EventArgs e)
+        {
+            bntMinimizar.Image = ImagensBotoes.Images[2];
+        }
+        private void FecharEntrar(object sender, EventArgs e)
+        {
+            bntFechar.Image = ImagensBotoes.Images[1];
+        }
+        private void FecharSair(object sender, EventArgs e)
+        {
+            if(ImagensBotoes.Images.Count > 0)
+            bntFechar.Image = ImagensBotoes.Images[0];
+        }
         #endregion
 
         #region Buscar
         private void SelecionarBuscar(object sender,EventArgs e)
         {
+            if(!Ativado)
             lblBuscar.BackColor = Color.FromArgb(100,100,100);
         }
         private void DesSelecionarBuscar(object sende,EventArgs e)
@@ -71,19 +97,22 @@ namespace Screen2._0
         }
         private void lblBuscar_Click(object sender, EventArgs e)
         {
-            //Coloca o nome e local se existir
-            if(txtNome.Text == "")
+            if (!Ativado)
             {
-                SalvarArquivo.FileName = "Imagem";
-            }
-            else
-            {
-                SalvarArquivo.FileName = txtNome.Text;
-            }
+                //Coloca o nome e local se existir
+                if (txtNome.Text == "")
+                {
+                    SalvarArquivo.FileName = "Imagem";
+                }
+                else
+                {
+                    SalvarArquivo.FileName = txtNome.Text;
+                }
 
-            SalvarArquivo.Filter = "Arquivos de imagens|*.bmp;*.icon;*.jpeg;*.png|Todos os arquivos|*.*";
-            SalvarArquivo.Title = "Escolha aonde vai salvar sua imagem";
-            SalvarArquivo.ShowDialog();
+                SalvarArquivo.Filter = "Arquivos de imagens|*.bmp;*.icon;*.jpeg;*.png|Todos os arquivos|*.*";
+                SalvarArquivo.Title = "Escolha aonde vai salvar sua imagem";
+                SalvarArquivo.ShowDialog();
+            }
         }
         #endregion
 
@@ -198,16 +227,20 @@ namespace Screen2._0
                     lblDireita.ForeColor = Color.SteelBlue;
                     break;
                 default:
-                    lblSuperior.ForeColor = Color.White;
-                    lblInferior.ForeColor = Color.White;
-                    lblEsquerda.ForeColor = Color.White;
-                    lblDireita.ForeColor = Color.White;
+                    if (!Ativado)
+                    {
+                        lblSuperior.ForeColor = Color.White;
+                        lblInferior.ForeColor = Color.White;
+                        lblEsquerda.ForeColor = Color.White;
+                        lblDireita.ForeColor = Color.White;
+                    }
                     break;
             }
 
             #endregion
 
-            if(Ativado)
+            #region Controla a imagem de ativado
+            if (Ativado)
             {
                 bntAtivado.Image = ImagensAtivado.Images[0];
                 DesAtivarControles(true);
@@ -217,8 +250,9 @@ namespace Screen2._0
                 bntAtivado.Image = ImagensAtivado.Images[1];
                 DesAtivarControles(false);
             }
+            #endregion
 
-            lblSaida.Text = Ativado + "";
+            lblSaida.Text = Ativado + "," + CorteSelecionado + ",";
         }
 
         private void TeclaPrecionada(object sender,KeyEventArgs e)
@@ -307,11 +341,38 @@ namespace Screen2._0
         {
             if(DA)
             {
-                grupoConfig.Enabled = false;
+                txtLocal.Enabled = false;
+                txtNome.Enabled = false;
+                txtNumero.Enabled = false;
+                ListaFormatos.Enabled = false;
+
+                lblLocal.ForeColor = Color.DarkGray;
+                lblNome.ForeColor = Color.DarkGray;
+                lblMais.ForeColor = Color.DarkGray;
+                lblFormato.ForeColor = Color.DarkGray;
+                lblSuperior.ForeColor = Color.DarkGray;
+                lblInferior.ForeColor = Color.DarkGray;
+                lblEsquerda.ForeColor = Color.DarkGray;
+                lblDireita.ForeColor = Color.DarkGray;
+                lblUltimaImagem.ForeColor = Color.DarkGray;
+                lblBuscar.ForeColor = Color.DarkGray;
+
+                CorteSelecionado = 0;
             }
             else
             {
-                grupoConfig.Enabled = true;
+                txtLocal.Enabled = true;
+                txtNome.Enabled = true;
+                txtNumero.Enabled = true;
+                ListaFormatos.Enabled = true;
+
+                lblLocal.ForeColor = Color.White;
+                lblNome.ForeColor = Color.White;
+                lblMais.ForeColor = Color.White;
+                lblFormato.ForeColor = Color.White;
+                lblUltimaImagem.ForeColor = Color.White;
+                lblBuscar.ForeColor = Color.White;
+                txtLocal.Focus();
             }
         }
     }
