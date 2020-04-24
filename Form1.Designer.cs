@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipal));
             this.Titulo = new System.Windows.Forms.Label();
             this.Barra = new System.Windows.Forms.Panel();
             this.bntMinimizar = new System.Windows.Forms.PictureBox();
@@ -55,6 +56,7 @@
             this.SalvarArquivo = new System.Windows.Forms.SaveFileDialog();
             this.lblSaida = new System.Windows.Forms.Label();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
+            this.ImagensAtivado = new System.Windows.Forms.ImageList(this.components);
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bntMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntFechar)).BeginInit();
@@ -117,11 +119,13 @@
             // bntAtivado
             // 
             this.bntAtivado.BackColor = System.Drawing.Color.Lime;
+            this.bntAtivado.Image = ((System.Drawing.Image)(resources.GetObject("bntAtivado.Image")));
             this.bntAtivado.Location = new System.Drawing.Point(461, 214);
             this.bntAtivado.Name = "bntAtivado";
             this.bntAtivado.Size = new System.Drawing.Size(100, 20);
             this.bntAtivado.TabIndex = 2;
             this.bntAtivado.TabStop = false;
+            this.bntAtivado.Click += new System.EventHandler(this.Ativacao);
             // 
             // grupoConfig
             // 
@@ -219,7 +223,6 @@
             this.ListaFormatos.Name = "ListaFormatos";
             this.ListaFormatos.Size = new System.Drawing.Size(120, 56);
             this.ListaFormatos.TabIndex = 3;
-            this.ListaFormatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
             // 
             // lblSuperior
             // 
@@ -327,6 +330,13 @@
             this.Temporizador.Enabled = true;
             this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
             // 
+            // ImagensAtivado
+            // 
+            this.ImagensAtivado.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImagensAtivado.ImageStream")));
+            this.ImagensAtivado.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImagensAtivado.Images.SetKeyName(0, "Ativado.png");
+            this.ImagensAtivado.Images.SetKeyName(1, "Desativado.png");
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +393,7 @@
         private System.Windows.Forms.Label lblInferior;
         private System.Windows.Forms.Label lblEsquerda;
         private System.Windows.Forms.Label lblDireita;
+        private System.Windows.Forms.ImageList ImagensAtivado;
     }
 }
 

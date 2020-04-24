@@ -18,6 +18,8 @@ namespace Screen2._0
 
         int X = 0;
         int Y = 0;
+
+        bool Ativado = false;
         public TelaPrincipal()
         {
             InitializeComponent();
@@ -204,6 +206,19 @@ namespace Screen2._0
             }
 
             #endregion
+
+            if(Ativado)
+            {
+                bntAtivado.Image = ImagensAtivado.Images[0];
+                DesAtivarControles(true);
+            }
+            else
+            {
+                bntAtivado.Image = ImagensAtivado.Images[1];
+                DesAtivarControles(false);
+            }
+
+            lblSaida.Text = Ativado + "";
         }
 
         private void TeclaPrecionada(object sender,KeyEventArgs e)
@@ -273,6 +288,30 @@ namespace Screen2._0
                         CorteDireita--;
                     }
                 }
+            }
+        }
+
+        private void Ativacao(object sender,EventArgs e)
+        {
+            if(Ativado)
+            {
+                Ativado = false;
+            }
+            else
+            {
+                Ativado = true;
+            }
+        }
+
+        private void DesAtivarControles(bool DA)
+        {
+            if(DA)
+            {
+                grupoConfig.Enabled = false;
+            }
+            else
+            {
+                grupoConfig.Enabled = true;
             }
         }
     }
