@@ -33,12 +33,6 @@ namespace Screen2._0
 
             Titulo.MouseDown += new MouseEventHandler(MouseBaixo);
             Titulo.MouseMove += new MouseEventHandler(MovimentoMouse);
-
-            bntMinimizar.MouseDown += new MouseEventHandler(MouseBaixo);
-            bntMinimizar.MouseMove += new MouseEventHandler(MovimentoMouse);
-
-            bntFechar.MouseDown += new MouseEventHandler(MouseBaixo);
-            bntFechar.MouseMove += new MouseEventHandler(MovimentoMouse);
             #endregion
         }
 
@@ -252,6 +246,7 @@ namespace Screen2._0
             }
             #endregion
 
+
             lblSaida.Text = Ativado + "," + CorteSelecionado + ",";
         }
 
@@ -323,6 +318,19 @@ namespace Screen2._0
                     }
                 }
             }
+            #region Cria a imagem de previsao de corte
+
+            Bitmap FuturoCorte = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+            for (int x = 0; x < FuturoCorte.Width; x++)
+            {
+                for (int y = 0; y < FuturoCorte.Height; y++)
+                {
+                    FuturoCorte.SetPixel(x, y, Color.Red);
+                }
+            }
+            TelaTamanho.Image = FuturoCorte;
+            #endregion
         }
 
         private void Ativacao(object sender,EventArgs e)
@@ -372,7 +380,6 @@ namespace Screen2._0
                 lblFormato.ForeColor = Color.White;
                 lblUltimaImagem.ForeColor = Color.White;
                 lblBuscar.ForeColor = Color.White;
-                txtLocal.Focus();
             }
         }
     }
