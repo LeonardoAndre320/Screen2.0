@@ -250,6 +250,7 @@
             this.TelaTamanho.Location = new System.Drawing.Point(233, 99);
             this.TelaTamanho.Name = "TelaTamanho";
             this.TelaTamanho.Size = new System.Drawing.Size(96, 54);
+            this.TelaTamanho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TelaTamanho.TabIndex = 6;
             this.TelaTamanho.TabStop = false;
             // 
@@ -323,6 +324,7 @@
             this.txtLocal.Size = new System.Drawing.Size(468, 20);
             this.txtLocal.TabIndex = 0;
             this.txtLocal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeclaPrecionada);
+            this.txtLocal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TeclaSolta);
             // 
             // lblSaida
             // 

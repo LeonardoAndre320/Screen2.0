@@ -256,6 +256,9 @@ namespace Screen2._0
             {
                 if (CorteSelecionado == 1)
                 {
+                    if (CorteSuperior >= Screen.PrimaryScreen.Bounds.Height)
+                        SystemSounds.Exclamation.Play();
+                    else
                     CorteSuperior++;
                 }
                 else if(CorteSelecionado == 2)
@@ -318,18 +321,26 @@ namespace Screen2._0
                     }
                 }
             }
+        }
+
+        private void TeclaSolta(object sender, KeyEventArgs e)
+        {
             #region Cria a imagem de previsao de corte
 
             Bitmap FuturoCorte = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-
-            for (int x = 0; x < FuturoCorte.Width; x++)
-            {
-                for (int y = 0; y < FuturoCorte.Height; y++)
+            //Superior
+            if (CorteSuperior != 0)
+            { /*
+                for (int x = 0; x < FuturoCorte.Width; x++)
                 {
-                    FuturoCorte.SetPixel(x, y, Color.Red);
-                }
+                    for (int y = 0; y < CorteSuperior; y++)
+                        FuturoCorte.SetPixel(x, y, Color.Red);
+                }*/
             }
+            TelaTamanho.Disposed(false);
             TelaTamanho.Image = FuturoCorte;
+            
+            FuturoCorte = null;
             #endregion
         }
 
