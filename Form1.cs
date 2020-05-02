@@ -374,7 +374,7 @@ namespace Screen2._0
         private void PreverCorte()
         {
             #region Limpa a imagem 
-            /*
+            
             for (int y = 0; y < FuturoCorte.Height; y++)
             {
                 for (int x = 0; x < FuturoCorte.Width; x++)
@@ -382,7 +382,7 @@ namespace Screen2._0
                     //FuturoCorte.SetPixel(x, y, Color.Transparent);
                     FuturoCorte.SetPixel(x, y, Color.FromArgb(100, 100, 100));
                 }
-            }*/
+            }
             #endregion
             #region Antigo codigo
             /*
