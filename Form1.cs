@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Media;
+using System.Threading;
 
 namespace Screen2._0
 {
@@ -112,8 +113,6 @@ namespace Screen2._0
 
         private Bitmap CortarImagem(Bitmap Imagem, int Superior = 0, int Inferior = 0, int Esquerda = 0, int Direita = 0)
         {
-
-
             return Imagem;
         }
 
@@ -233,20 +232,6 @@ namespace Screen2._0
 
             #endregion
 
-            #region Controla a imagem de ativado
-            if (Ativado)
-            {
-                bntAtivado.Image = ImagensAtivado.Images[0];
-                DesAtivarControles(true);
-            }
-            else
-            {
-                bntAtivado.Image = ImagensAtivado.Images[1];
-                DesAtivarControles(false);
-            }
-            #endregion
-
-
             lblSaida.Text = Ativado + "," + CorteSelecionado + ",";
         }
 
@@ -325,34 +310,25 @@ namespace Screen2._0
 
         private void TeclaSolta(object sender, KeyEventArgs e)
         {
-            #region Cria a imagem de previsao de corte
-
-            Bitmap FuturoCorte = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            //Superior
-            if (CorteSuperior != 0)
-            { /*
-                for (int x = 0; x < FuturoCorte.Width; x++)
-                {
-                    for (int y = 0; y < CorteSuperior; y++)
-                        FuturoCorte.SetPixel(x, y, Color.Red);
-                }*/
-            }
-            TelaTamanho.Disposed(false);
-            TelaTamanho.Image = FuturoCorte;
-            
-            FuturoCorte = null;
-            #endregion
-        }
+            //Thread t = new Thread(PreverCorte);
+            //t.Start();
+            PreverCorte();
+        }    
 
         private void Ativacao(object sender,EventArgs e)
         {
             if(Ativado)
             {
                 Ativado = false;
+                bntAtivado.Image = ImagensAtivado.Images[1];
+                DesAtivarControles(false);
+                txtLocal.Focus();
             }
             else
             {
                 Ativado = true;
+                bntAtivado.Image = ImagensAtivado.Images[0];
+                DesAtivarControles(true);
             }
         }
 
@@ -392,6 +368,64 @@ namespace Screen2._0
                 lblUltimaImagem.ForeColor = Color.White;
                 lblBuscar.ForeColor = Color.White;
             }
+        }
+
+        Bitmap FuturoCorte = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+        private void PreverCorte()
+        {
+            #region Limpa a imagem 
+            /*
+            for (int y = 0; y < FuturoCorte.Height; y++)
+            {
+                for (int x = 0; x < FuturoCorte.Width; x++)
+                {
+                    //FuturoCorte.SetPixel(x, y, Color.Transparent);
+                    FuturoCorte.SetPixel(x, y, Color.FromArgb(100, 100, 100));
+                }
+            }*/
+            #endregion
+            #region Antigo codigo
+            /*
+            #region Cria a imagem de previsao de corte superior
+
+            if (CorteSuperior != 0)
+            {
+                for (int x = 0; x < FuturoCorte.Width; x++)
+                {
+                    for (int y = 0; y < CorteSuperior; y++)
+                        FuturoCorte.SetPixel(x, y, Color.Red);
+                }
+            }
+
+            #endregion
+
+            #region Cria a imagem de previsao de corte inferior
+
+            if(CorteInferior != 0)
+            {
+                for(int x = FuturoCorte.Width; x > FuturoCorte.Width; x--)
+                {
+                    for (int y = FuturoCorte.Height; y > FuturoCorte.Height; y--)
+                    {
+                        FuturoCorte.SetPixel(x, y, Color.Red);
+                    }
+                }
+            }
+            #endregion
+    */
+            #endregion
+
+            for(int x = CorteEsquerda; x < FuturoCorte.Width - CorteDireita;x++)
+            {
+                for (int y = CorteSuperior; y < FuturoCorte.Height - CorteInferior; y++)
+                {
+                    FuturoCorte.SetPixel(x, y, Color.FromArgb(50, 50, 50));
+                    //FuturoCorte.SetPixel(x, y, Color.Red);
+                }
+            }
+
+
+            TelaTamanho.Image = FuturoCorte;
         }
     }
 }
