@@ -20,6 +20,9 @@ namespace Screen2._0
         int X = 0;
         int Y = 0;
 
+        string LocalSalvamento = "";
+        string NomeArquivo = "";
+
         bool Ativado = false;
         bool CorteConcluido = true;
         public TelaPrincipal()
@@ -106,9 +109,20 @@ namespace Screen2._0
                     SalvarArquivo.FileName = txtNome.Text;
                 }
 
+                if (Directory.Exists(txtLocal.Text)) { SalvarArquivo.InitialDirectory = txtLocal.Text; }
+
                 SalvarArquivo.Filter = "Arquivos de imagens|*.bmp;*.icon;*.jpeg;*.png|Todos os arquivos|*.*";
                 SalvarArquivo.Title = "Escolha aonde vai salvar sua imagem";
                 SalvarArquivo.ShowDialog();
+
+                if (File.Exists(SalvarArquivo.FileName))
+                {
+                    LocalSalvamento = Path.GetDirectoryName(SalvarArquivo.FileName) + "\\";
+                    NomeArquivo = Path.GetFileNameWithoutExtension(SalvarArquivo.FileName);
+
+                    txtLocal.Text = LocalSalvamento;
+                    txtNome.Text = NomeArquivo;
+                }
             }
         }
         #endregion
@@ -339,12 +353,14 @@ namespace Screen2._0
                 Ativado = false;
                 bntAtivado.Image = ImagensAtivado.Images[1];
                 DesAtivarControles(false);
+                TempoPrint.Enabled = false;
                 txtLocal.Focus();
             }
             else
             {
                 Ativado = true;
                 bntAtivado.Image = ImagensAtivado.Images[0];
+                TempoPrint.Enabled = true;
                 DesAtivarControles(true);
             }
         }
@@ -446,6 +462,14 @@ namespace Screen2._0
             
             TelaTamanho.Image = FuturoCorte;
             CorteConcluido = true;
+        }
+
+        private void ContaPrint(object sender,EventArgs e)
+        {
+            if(Clipboard.ContainsImage())
+            {
+
+            }
         }
     }
 }

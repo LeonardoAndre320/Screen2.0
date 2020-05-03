@@ -57,6 +57,7 @@
             this.lblSaida = new System.Windows.Forms.Label();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.ImagensAtivado = new System.Windows.Forms.ImageList(this.components);
+            this.TempoPrint = new System.Windows.Forms.Timer(this.components);
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bntMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntFechar)).BeginInit();
@@ -349,6 +350,10 @@
             this.ImagensAtivado.Images.SetKeyName(0, "Ativado.png");
             this.ImagensAtivado.Images.SetKeyName(1, "Desativado.png");
             // 
+            // TempoPrint
+            // 
+            this.TempoPrint.Tick += new System.EventHandler(this.ContaPrint);
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +411,7 @@
         private System.Windows.Forms.Label lblEsquerda;
         private System.Windows.Forms.Label lblDireita;
         private System.Windows.Forms.ImageList ImagensAtivado;
+        private System.Windows.Forms.Timer TempoPrint;
     }
 }
 
