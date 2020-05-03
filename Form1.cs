@@ -21,10 +21,12 @@ namespace Screen2._0
         int Y = 0;
 
         bool Ativado = false;
+        bool CorteConcluido = true;
         public TelaPrincipal()
         {
             InitializeComponent();
 
+            PreverCorte();//Toquesinho para mudar a cor da tela de corte
             ListaFormatos.SelectedIndex = 3;//Seleciona Png
             TelaTamanho.Location = new Point(Size.Width / 2 - TelaTamanho.Size.Width / 2, TelaTamanho.Location.Y);//Centraliza a tela de tamanho
 
@@ -125,46 +127,58 @@ namespace Screen2._0
         
         private void ClickSuperior(object sender, EventArgs e)
         {
-            if(CorteSelecionado == 1)
+            if (!Ativado)
             {
-                CorteSelecionado = 0;
-            }
-            else
-            {
-                CorteSelecionado = 1; 
+                if (CorteSelecionado == 1)
+                {
+                    CorteSelecionado = 0;
+                }
+                else
+                {
+                    CorteSelecionado = 1;
+                }
             }
         }
         private void ClickInferior(object sender, EventArgs e)
         {
-            if (CorteSelecionado == 2)
+            if (!Ativado)
             {
-                CorteSelecionado = 0;
-            }
-            else
-            {
-                CorteSelecionado = 2;
+                if (CorteSelecionado == 2)
+                {
+                    CorteSelecionado = 0;
+                }
+                else
+                {
+                    CorteSelecionado = 2;
+                }
             }
         }
         private void ClickEsquerda(object sender, EventArgs e)
         {
-            if (CorteSelecionado == 3)
+            if (!Ativado)
             {
-                CorteSelecionado = 0;
-            }
-            else
-            {
-                CorteSelecionado = 3;
+                if (CorteSelecionado == 3)
+                {
+                    CorteSelecionado = 0;
+                }
+                else
+                {
+                    CorteSelecionado = 3;
+                }
             }
         }
         private void ClickDireita(object sender, EventArgs e)
         {
-            if (CorteSelecionado == 4)
+            if (!Ativado)
             {
-                CorteSelecionado = 0;
-            }
-            else
-            {
-                CorteSelecionado = 4;
+                if (CorteSelecionado == 4)
+                {
+                    CorteSelecionado = 0;
+                }
+                else
+                {
+                    CorteSelecionado = 4;
+                }
             }
         }
 
@@ -310,9 +324,12 @@ namespace Screen2._0
 
         private void TeclaSolta(object sender, KeyEventArgs e)
         {
-            //Thread t = new Thread(PreverCorte);
-            //t.Start();
-            PreverCorte();
+            if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Down && e.KeyCode == Keys.Left && e.KeyCode == Keys.Right || CorteSelecionado != 0 && CorteConcluido)
+            {
+                //MessageBox.Show(e.KeyCode + "");
+                Thread t = new Thread(PreverCorte);
+                t.Start();
+            }
         }    
 
         private void Ativacao(object sender,EventArgs e)
@@ -373,16 +390,19 @@ namespace Screen2._0
         Bitmap FuturoCorte = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         private void PreverCorte()
         {
+            CorteConcluido = false;
             #region Limpa a imagem 
-            
+
             for (int y = 0; y < FuturoCorte.Height; y++)
             {
                 for (int x = 0; x < FuturoCorte.Width; x++)
                 {
                     //FuturoCorte.SetPixel(x, y, Color.Transparent);
                     FuturoCorte.SetPixel(x, y, Color.FromArgb(100, 100, 100));
+                    //FuturoCorte.SetPixel(x, y, Color.Red);
                 }
             }
+
             #endregion
             #region Antigo codigo
             /*
@@ -414,18 +434,18 @@ namespace Screen2._0
             #endregion
     */
             #endregion
-
-            for(int x = CorteEsquerda; x < FuturoCorte.Width - CorteDireita;x++)
+            for (int x = CorteEsquerda; x < FuturoCorte.Width - CorteDireita;x++)
             {
                 for (int y = CorteSuperior; y < FuturoCorte.Height - CorteInferior; y++)
                 {
-                    FuturoCorte.SetPixel(x, y, Color.FromArgb(50, 50, 50));
-                    //FuturoCorte.SetPixel(x, y, Color.Red);
+                    //FuturoCorte.SetPixel(x, y, Color.FromArgb(50, 50, 50));
+                    FuturoCorte.SetPixel(x, y, Color.Green);
                 }
             }
 
-
+            
             TelaTamanho.Image = FuturoCorte;
+            CorteConcluido = true;
         }
     }
 }

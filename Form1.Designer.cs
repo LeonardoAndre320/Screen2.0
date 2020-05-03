@@ -203,6 +203,7 @@
             // 
             // UltimaImagem
             // 
+            this.UltimaImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.UltimaImagem.Location = new System.Drawing.Point(447, 101);
             this.UltimaImagem.Name = "UltimaImagem";
             this.UltimaImagem.Size = new System.Drawing.Size(96, 54);
